@@ -1,9 +1,14 @@
 <?php
 /**
-* 
-*/
-class DataModel
+ * Data Model  
+ * @author		Geraint Palmer
+ * @version 	1.0.0 
+ * @abstract	   
+ */
+abstract class DataModel
 {
+	    const VERSION = '1.0.0';
+		
 		protected static $table_name;
 		protected static $db_exclude = array();
 
