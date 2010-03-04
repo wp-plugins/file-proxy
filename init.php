@@ -54,6 +54,6 @@
 		require_once( TTDFP_LIB.DS.'file-proxy'.DS.'ttd_file_proxy.php' );
 		
 		// Create Plugin Instance
-		$main = new TtdFileProxy();
+		$ttd_file_proxy = new TtdFileProxy();
 	}	
 ?>
