@@ -1,10 +1,10 @@
 === Plugin Name ===
 Contributors: geraint
 Donate link: http://www.twothirdsdesign.co.uk/
-Tags: files, protection, retsrict access,
+Tags: files, protection, restrict access,
 Requires at least: 2.9.x
 Tested up to: 2.9.2
-Stable tag: 0.4
+Stable tag: 0.5
 
 File Proxy is a simple WordPress plug that lest you protect / restrict access to a specific embedded file.
 
@@ -35,6 +35,10 @@ none
 1. the number at the end is the number you want.
 
 == Changelog ==
+
+= 0.5 = 
+changed a variable name to, obscure it to avoid conflicts.
+
 = 0.4 =
 minor bug fix
 
@@ -45,9 +49,15 @@ Uses filename when link text is not specified. i.e. `[file-proxy id='attachment_
 Adds some Variable sanitation
 
 == Upgrade Notice ==
+
+= 0.5 = 
+changed a variable name to, obscure it to avoid conflicts.
+
 = 0.4 =
 minor bug fix
+
 = 0.3 =
 Default link text replaced by filename.
+
 = 0.2 =
 Adds some Variable sanitation, and sql prep to harden plugin security

@@ -37,11 +37,8 @@ class TtdFileProxy extends TtdPluginClass
 		
 		// Add admin menu interface
 		if( is_admin() ){
-			//include( TTDFP_ADMIN.DS."adminController.php" );
-			//$adminCrtl = new GcpfAdminController( &$this );
-			//add_action('admin_menu', array(&$adminCrtl, 'adminMenus'));
+
 		}
-		//add_action('template_redirect', array(&$this,'uri_detect'));
 					
 		// add activation hooks
 		register_activation_hook   ( TTDFP_PLUGIN_FILE , array(&$this, 'activate'  ));
@@ -110,26 +107,6 @@ class TtdFileProxy extends TtdPluginClass
 		
 		$this->update_option("version", TTDPF_VERSION );
 		
-		if( defined('WP_CONTENT_DIR') ){
-			if(!is_dir( WP_CONTENT_DIR.DS.'cache' ) && is_writable( WP_CONTENT_DIR )){
-				mkdir( WP_CONTENT_DIR.DS.'cache' );
-			}
-			if(!is_dir( WP_CONTENT_DIR.DS.'cache'.DS. $this->plugin_domain ) && is_writable( WP_CONTENT_DIR.DS.'cache' )){	
-				mkdir( WP_CONTENT_DIR.DS.'cache'.DS. $this->plugin_domain );
-			}
-			if(!is_dir( WP_CONTENT_DIR.DS.'cache'.DS. $this->plugin_domain )){
-				$this->update_option('cache', 'disabled');
-			}
-		}
-		else if(!is_dir( TTDFP_DIR.DS.'cache') && is_writable( TTDFP_DIR ))
-		{
-			mkdir( TTDFP_DIR.DS.'cache' );	
-			if(is_dir( TTDFP_DIR.DS.'cache') && is_writable( TTDFP_DIR )){
-				$this->update_option('cache', 'off');
-			}
-		}else{
-			$this->update_option('cache', 'disabled');
-		}
 	}
 		
 	/**
@@ -143,11 +120,6 @@ class TtdFileProxy extends TtdPluginClass
 	{
 		if( (boolean)$this->get_option("uninstall") ){
 			delete_option($this->options_key);
-			
-			if( is_dir( WP_CONTENT_DIR.DS.'cache'.DS. $this->plugin_domain ) && is_writable( WP_CONTENT_DIR.DS.'cache'.DS. $this->plugin_domain ) )
-				$this->rmdirr(WP_CONTENT_DIR.DS.'cache'.DS. $this->plugin_domain );
-			if( is_dir( TTDFP_DIR.DS.'cache' ) && is_writable( TTDFP_DIR.DS. $this->plugin_domain ) )
-				$this->rmdirr( TTDFP_DIR.DS.'cache' );
 		}
 	}
 	
