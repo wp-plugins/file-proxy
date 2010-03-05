@@ -214,7 +214,7 @@ class TtdFileProxy extends TtdPluginClass
 		
 		//if( !is_user_logged_in() )
 		//	$title = $title . " - Login to download this file.";
-		echo "<a href='{$link}' alt='{$alt}'>{$title}</a>";
+		return "<a href='{$link}' alt='{$alt}'>{$title}</a>";
 	}
 }
 ?>
